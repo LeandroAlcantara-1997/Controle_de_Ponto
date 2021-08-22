@@ -1,9 +1,8 @@
 package com.github.LeandroAlcantara1997.Controle_de_ponto.model;
 
-
 import lombok.*;
 
-import javax.persistence.ManyToOne;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -11,9 +10,9 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
-public class Localidade {
+public class Calendario {
     private Long id;
-    @ManyToOne
-    private NivelAcesso nivelAcesso;
+    private TipoData tipoData;
     private String descricao;
+    private LocalDateTime dataEspecial;
 }

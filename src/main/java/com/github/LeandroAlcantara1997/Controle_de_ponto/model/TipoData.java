@@ -1,9 +1,6 @@
 package com.github.LeandroAlcantara1997.Controle_de_ponto.model;
 
-
 import lombok.*;
-
-import javax.persistence.ManyToOne;
 
 @Getter
 @Setter
@@ -11,9 +8,7 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
-public class Localidade {
+public class TipoData {
     private Long id;
-    @ManyToOne
-    private NivelAcesso nivelAcesso;
     private String descricao;
 }
