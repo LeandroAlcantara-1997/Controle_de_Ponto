@@ -13,13 +13,11 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.9.7'
 
 	runtimeOnly 'mysql:mysql-connector-java'
 
@@ -27,6 +25,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
 	implementation 'com.h2database:h2'
+
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-bean-validators', version: '2.9.2'
+
+	implementation 'org.hibernate:hibernate-envers:5.5.6.Final'
+	implementation 'org.hibernate:hibernate-validator:7.0.1.Final'
+
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

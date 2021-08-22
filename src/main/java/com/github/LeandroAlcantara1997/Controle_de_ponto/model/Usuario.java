@@ -1,9 +1,10 @@
 package com.github.LeandroAlcantara1997.Controle_de_ponto.model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -13,16 +14,27 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_Cat_Usuario")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private CategoriaUsuario categoriaUsuario;
     private String nome;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_Empresa")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Empresa empresa;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_NivelAcesso")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private NivelAcesso nivelAcesso;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_Jornada_Trabalho")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private JornadaTrabalho jornadaTrabalho;
     private BigDecimal tolerancia;
     private LocalDateTime inicioJornada;
