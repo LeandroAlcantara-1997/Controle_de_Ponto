@@ -14,10 +14,6 @@ import java.util.List;
 @Entity
 public class TipoData {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String descricao;
-
-    @OneToMany(mappedBy = "tipoData", cascade = CascadeType.ALL)
-    private List<Calendario> calendario;
 }

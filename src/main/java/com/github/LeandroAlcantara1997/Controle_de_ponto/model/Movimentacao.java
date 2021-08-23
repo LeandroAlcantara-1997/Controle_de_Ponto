@@ -21,25 +21,19 @@ public class Movimentacao {
     @NoArgsConstructor
     @EqualsAndHashCode
     @Embeddable
-    public class MovimentacaoId implements Serializable{
-        private Long id;
-        private Long IdUsuario;
+    public  class  MovimentacaoId implements Serializable{
+        private long idMovimento;
+        private long idUsuario;
     }
-
-    @EmbeddedId
     @Id
-    @GeneratedValue
-    private MovimentacaoId id;
+    @EmbeddedId
+    private MovimentacaoId movimentacaoId;
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
     private BigDecimal periodo;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_Ocorrencia")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne
     private Ocorrencia ocorrencia;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_Calendario")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne
     private Calendario calendario;
 
 }

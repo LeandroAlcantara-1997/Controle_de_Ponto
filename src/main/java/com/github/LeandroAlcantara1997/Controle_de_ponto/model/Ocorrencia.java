@@ -15,12 +15,8 @@ import java.util.List;
 @Entity
 public class Ocorrencia {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String nome;
     private String descricao;
-
-    @OneToMany(mappedBy = "ocorrencia", cascade = CascadeType.ALL)
-    private List<Movimentacao> movimentacao;
 
 }

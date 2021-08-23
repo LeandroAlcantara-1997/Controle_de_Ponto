@@ -1,11 +1,11 @@
 package com.github.LeandroAlcantara1997.Controle_de_ponto.model;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 
-import javax.management.ConstructorParameters;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -14,9 +14,11 @@ import java.util.Objects;
 @EqualsAndHashCode
 @Builder
 @Entity
+@Audited
 public class JornadaTrabalho {
     @Id
-    private Long id;
+    @GeneratedValue
+    private long id;
     private String descricao;
 
 }

@@ -1,2 +1,48 @@
-package com.github.LeandroAlcantara1997.Controle_de_ponto.swagger;public class SwaggerConfig {
+package com.github.LeandroAlcantara1997.Controle_de_ponto.swagger;
+
+import io.swagger.models.auth.In;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.ApiKey;
+import springfox.documentation.service.Contact;
+import springfox.documentation.service.VendorExtension;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.github.LeandroAlcantara1997.Controle_de_ponto"))
+                .paths(PathSelectors.ant("/*"))
+                .build().apiInfo(metaInfo())
+                .useDefaultResponseMessages(false)
+                .securitySchemes(Arrays.asList(new ApiKey("Token Access", HttpHeaders.AUTHORIZATION, In.HEADER.name())));
+    }
+
+
+    private ApiInfo metaInfo() {
+        ApiInfo apiInfo = new ApiInfo(
+                "API-REST",
+                "Api para gerenciammento de ponto",
+                "1.0.0",
+                "Terms of Service",
+                new Contact("Leandro Alcantara", "https://github.com/LeandroAlcantara-1997", "leandro1997silva97@gmail.com"),
+                "Apache License Version 2.0",
+                "http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<VendorExtension>()
+        );
+        return apiInfo;
+    }
 }

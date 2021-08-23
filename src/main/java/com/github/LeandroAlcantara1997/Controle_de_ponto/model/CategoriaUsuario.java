@@ -1,6 +1,7 @@
 package com.github.LeandroAlcantara1997.Controle_de_ponto.model;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Builder
 @Entity
+@Audited
 public class CategoriaUsuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
