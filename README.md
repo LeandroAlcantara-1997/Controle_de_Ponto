@@ -11,6 +11,8 @@
 
 ## Banco de dados
 
+[MySQL](https://www.mysql.com/)
+
 [H2](https://www.h2database.com/html/main.html)
 
 ## Spring Boot
